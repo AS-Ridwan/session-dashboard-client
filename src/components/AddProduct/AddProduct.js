@@ -1,3 +1,6 @@
+import axios from "axios";
+import { toast } from "react-toastify";
+
 const AddProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -6,7 +9,22 @@ const AddProduct = () => {
       price: e.target.price.value,
       image: e.target.image.value,
     };
+
+    try {
+      const { data } = await axios.post(
+        "http://localhost:5000/products",
+        product
+      );
+      console.log(data);
+      if (!data.success) {
+        toast.error(data.error);
+      }
+      toast.success(data.message);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return (
     <div className="py-32 px-10 min-h-screen w-full">
       <div className="bg-white p-10 md:w-3/4 lg:w-1/2 mx-auto">
@@ -57,7 +75,9 @@ const AddProduct = () => {
           </div>
 
           <div className="text-right">
-            <button className="py-3 px-8 bg-green-400 text-white font-bold">Add</button>
+            <button className="py-3 px-8 bg-green-400 text-white font-bold">
+              Add
+            </button>
           </div>
         </form>
       </div>
