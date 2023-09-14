@@ -19,7 +19,7 @@ const sidebarRoutes = [
 ];
 
 export default function Sidebar() {
-  console.log("rendering");
+  // console.log("rendering");
   return (
     <aside
       className="md:w-1/6 md:h-screen shadow-lg shadow-gray-400 bg-gray-50 dark:bg-gray-800 sticky top-0 left-0"
