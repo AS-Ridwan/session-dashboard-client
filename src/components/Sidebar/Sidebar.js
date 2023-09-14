@@ -4,30 +4,30 @@ const sidebarRoutes = [
   {
     path: "/",
     name: "Home",
-    icon: "💒"
+    icon: "💒",
   },
   {
     path: "/products",
     name: "All Products",
-    icon: "🥗"
+    icon: "🥗",
   },
   {
     path: "/add",
     name: "Add Product",
-    icon: "🥗"
+    icon: "🥗",
   },
-]
+];
 
 export default function Sidebar() {
-  console.log("rendering")
+  console.log("rendering");
   return (
     <aside
-      className="md:w-1/6 md:h-screen shadow-lg shadow-gray-400 bg-gray-50 dark:bg-gray-800"
+      className="md:w-1/6 md:h-screen shadow-lg shadow-gray-400 bg-gray-50 dark:bg-gray-800 sticky top-0 left-0"
       aria-label="Sidebar"
     >
       <div className="overflow-y-auto py-4 px-3 ">
         <ul className="space-y-2">
-          {sidebarRoutes.map(route => (
+          {sidebarRoutes.map((route) => (
             <li key={route.path}>
               <NavLink
                 to={route.path}
